@@ -1,68 +1,77 @@
 // ==UserScript==
-// @name           Glassdoor Paywall Remover Update
-// @description    This script is designed to bypass visual overlays and restrictive styles (such as paywalls or scrolling blocks) on glassdoor.
-// @author         Percio Andrade @ https://github.com/percioandrade
-// @version        1.1
-// @include        http*://*glassdoor.*
-// @namespace      http://www.greasyfork.org
-// @license MIT    https://opensource.org/license/mit
+// @name         Glassdoor Paywall Remover v1.2
+// @description  Applies display:none on #unified-user-auth and removes the lock on the body.
+// @author       Percio Andrade
+// @version      1.2
+// @include      http*://*glassdoor.*
+// @namespace    http://www.greasyfork.org
+// @license      MIT
+// @run-at       document-start
 // ==/UserScript==
- 
+
 (function() {
     'use strict';
- 
-    function addGlobalStyle(css) {
-        const style = document.createElement('style');
-        style.type = 'text/css';
-        style.textContent = css;
-        document.head.appendChild(style);
-    }
- 
-    function removeElementById(id) {
-        const element = document.getElementById(id);
-        if (element) {
-            element.remove();
+
+    // 1. IMMEDIATE CSS: Hides the auth container before it renders
+    const style = document.createElement('style');
+    style.innerHTML = `
+        /* The target you identified */
+        #unified-user-auth,
+        .unified-user-auth,
+        div[id*="Hardsell"],
+        div[class*="Hardsell"] {
+            display: none !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+
+        /* Ensures scrolling works even if JS lags */
+        body, html {
+            overflow: auto !important;
+            position: static !important;
+        }
+    `;
+    document.documentElement.appendChild(style);
+
+    // 2. BODY TAG CLEANUP
+    // Removes the entire 'style' attribute to clear "overflow: hidden; position: fixed;"
+    function cleanBody() {
+        const body = document.body;
+        if (body && body.getAttribute('style')) {
+            // Only remove if it contains the locking properties
+            const style = body.getAttribute('style');
+            if (style.includes('overflow') || style.includes('fixed')) {
+                body.removeAttribute('style');
+            }
         }
     }
- 
-    function cleanMainStyles(element) {
-        if (!element) return;
- 
-        // Remove inline styles que travam o layout
-        element.style.removeProperty('height');
-        element.style.removeProperty('width');
-        element.style.removeProperty('position');
-        element.style.overflow = 'auto';
-    }
- 
-    function observeStyleChanges(target) {
-        const observer = new MutationObserver(() => {
-            cleanMainStyles(target);
+
+    // 3. MONITORING
+    // Since the site re-applies the style, we remove it again.
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.target === document.body && mutation.type === 'attributes') {
+                cleanBody();
+            }
         });
- 
-        observer.observe(target, {
-            attributes: true,
-            attributeFilter: ['style']
-        });
-    }
- 
-    window.addEventListener('load', function() {
-        // Esconde overlays
-        addGlobalStyle("#HardsellOverlay { display: none !important; }");
-        removeElementById('ContentWallHardsell');
-        removeElementById('UserAlert');
- 
-        // Permite scroll no main
-        addGlobalStyle("main { overflow: auto !important; }");
- 
-        // Alvo: body.main
-        const mainElement = document.querySelector('body.main');
-        if (mainElement) {
-            cleanMainStyles(mainElement);
-            observeStyleChanges(mainElement);
-        }
- 
-        // Libera scroll no body também
-        document.body.onscroll = null;
     });
+
+    // Starts as soon as the body exists
+    const init = setInterval(() => {
+        if (document.body) {
+            cleanBody();
+            
+            // Activates the observer to ensure the lock doesn't return
+            observer.observe(document.body, {
+                attributes: true,
+                attributeFilter: ['style']
+            });
+            
+            clearInterval(init);
+        }
+    }, 50);
+
+    // Backup: Runs every second just to be sure
+    setInterval(cleanBody, 1000);
+
 })();
