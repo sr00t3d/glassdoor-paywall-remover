@@ -59,7 +59,7 @@ The script operates on two main fronts to overcome React rendering:
 
 ## 📚 Detailed Tutorial
 
-For a complete step-by-step guide on how to import the generated files into Thunderbird and solve common migration issues, check out the full article on my blog:
+For a complete step-by-step guide, check out the full article on my blog:
 
 👉 [**Remove Paywall from Glassdoor**](https://perciocastelo.com.br/blog/remove-paywall-from-glassdoor.html)
 
