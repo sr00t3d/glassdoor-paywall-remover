@@ -47,7 +47,7 @@ The script operates on two main fronts to overcome React rendering:
 ## ⚠️ Disclaimer
 
 > [!WARNING]
-> This software is provided "as is." Although it has been extensively tested in Dovecot environments, always perform a full backup of your Maildir directories before running any conversion script. The author is not responsible for any data loss.
+> This software is provided "as is." Although it has been extensively tested in browser environments. The author is not responsible for any data loss.
 
 ---
 
