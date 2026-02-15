@@ -44,22 +44,16 @@ O script atua em duas frentes principais para vencer a renderização do React:
     * Implementação de limpeza agressiva de atributos na tag `<body>`.
     * Tradução de comentários e descrições para Inglês (padrão global).
 
-## ⚠️ Isenção de Responsabilidade (Disclaimer)
+## ⚠️ Aviso Legal
 
 > [!WARNING]
-> Este software é fornecido "no estado em que se encontra". Embora tenha sido testado extensivamente em navegadores. O autor não se responsabiliza por qualquer perda de dados.
+> Este software é fornecido "como está". Certifique-se sempre de testar primeiro em um ambiente de desenvolvimento. O autor não se responsabiliza por qualquer uso indevido, consequências legais ou impacto em dados causado por esta ferramenta.
 
 ---
 
-## 🛠️ Requisitos
-
-- **SO**: Linux (Debian, Ubuntu, CentOS, RHEL).
-- **Dependências**: `bash`, `curl`, `python3` (para o motor de conversão interno).
-- **Permissões**: Acesso de leitura ao Maildir de origem e escrita no destino.
-
 ## 📚 Tutorial Detalhado
 
-Para um guia passo a passo completo confira o artigo completo no meu blog:
+Para um guia passo a passo completo confira meu artigo completo:
 
 👉 [**Remove Paywall from Glassdoor**](https://perciocastelo.com.br/blog/remove-paywall-from-glassdoor.html)
 
