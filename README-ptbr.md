@@ -47,7 +47,7 @@ O script atua em duas frentes principais para vencer a renderização do React:
 ## ⚠️ Isenção de Responsabilidade (Disclaimer)
 
 > [!WARNING]
-> Este software é fornecido "no estado em que se encontra". Embora tenha sido testado extensivamente em ambientes Dovecot, sempre realize um backup completo dos seus diretórios Maildir antes de executar qualquer script de conversão. O autor não se responsabiliza por qualquer perda de dados.
+> Este software é fornecido "no estado em que se encontra". Embora tenha sido testado extensivamente em navegadores. O autor não se responsabiliza por qualquer perda de dados.
 
 ---
 
@@ -59,7 +59,7 @@ O script atua em duas frentes principais para vencer a renderização do React:
 
 ## 📚 Tutorial Detalhado
 
-Para um guia passo a passo completo sobre como importar os arquivos gerados no Thunderbird e resolver problemas comuns de migração, confira o artigo completo no meu blog:
+Para um guia passo a passo completo confira o artigo completo no meu blog:
 
 👉 [**Remove Paywall from Glassdoor**](https://perciocastelo.com.br/blog/remove-paywall-from-glassdoor.html)
 
