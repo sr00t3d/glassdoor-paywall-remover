@@ -44,10 +44,10 @@ The script operates on two main fronts to overcome React rendering:
     * Implementation of aggressive attribute cleanup on the `<body>` tag.
     * Translation of comments and descriptions to English (global standard).
 
-## ⚠️ Disclaimer
+## ⚠️ Legal Notice
 
 > [!WARNING]
-> This software is provided "as is." Although it has been extensively tested in browser environments. The author is not responsible for any data loss.
+> This software is provided "as is". Always make sure to test first in a development environment. The author is not responsible for any misuse, legal consequences, or data impact caused by this tool.
 
 ---
 
