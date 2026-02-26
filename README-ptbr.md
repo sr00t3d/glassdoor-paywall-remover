@@ -5,6 +5,8 @@ Readme: [English](README.md)
 ![License](https://img.shields.io/github/license/sr00t3d/glassdoor-paywall-remover)
 ![JavaScript](https://img.shields.io/badge/language-javascript-green.svg)
 
+<img width="700" src="glassdoor-paywall-remover-update-cover.webp" />
+
 Este é um Userscript (script de usuário) desenvolvido para remover o bloqueio de login (paywall), overlays intrusivos e destravar a rolagem de página no site Glassdoor.
 
 O script foi atualizado para lidar com as novas implementações do Glassdoor (2026), que utilizam renderização dinâmica via React/Next.js e bloqueios agressivos de CSS inline na tag `<body>`.
