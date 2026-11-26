@@ -25,6 +25,13 @@
             pointer-events: none !important;
         }
 
+        /* Removes the blur from dynamically named content classes */
+        [class*="BlurredContent_"] {
+            filter: none !important;
+            -webkit-filter: none !important;
+            backdrop-filter: none !important;
+        }
+
         /* Ensures scrolling works even if JS lags */
         body, html {
             overflow: auto !important;
