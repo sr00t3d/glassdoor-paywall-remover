@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Glassdoor Paywall Remover v1.2
+// @name         Glassdoor Paywall Remover v1.4
 // @description  Applies display:none on #unified-user-auth and removes the lock on the body.
 // @author       Percio Andrade
-// @version      1.2
+// @version      1.4
 // @include      http*://*glassdoor.*
 // @namespace    http://www.greasyfork.org
 // @license      MIT
